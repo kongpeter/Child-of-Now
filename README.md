@@ -1,10 +1,9 @@
 # Child-of-Now (Team 20)
 
 Created Date: 26/08/2020\
-Last Updated Date: 26/08/2020
+Last Updated Date: 03/09/2020
 
-> Created by team-20 in COMP90082 from UniMelb\
-> Contributors: [Lingxuan](https://github.com/kongpeter), 
+> Created by team-20 in COMP90082 from UniMelb 
 
 
 
@@ -49,14 +48,21 @@ In this project, the target of team 20 is to convert the collected data into ima
 
 ## Use Cases (Lingxuan)
 
-* **SuD**: The mesh cloud to point system. 
-* **Actor**: 14,400 Victorians, Cameras.
+* **SuD**: The Point Cloud to Mesh system. 
+* **Actor**: 14,400 Victorians(Users), Cameras, user-interation display, developers. 
 
-> Scenario 1: The cameras scan user's movement and successfully generate a 3D, high-resolution, moving holograms of the user body.
+<!-- > Scenario 1: The cameras scan user's movement and successfully generate a 3D, high-resolution, moving holograms of the user body.
 
 > Scenario 2: The cameras scan user's movement, but fail to generate the moving holograms. Then the system will scan user again to analysis and generate moving holograms.
 
-> Scenario 3: The user is not satisfied with the exciting moving holograms, he can require the system to scan and generate a new one. 
+> Scenario 3: The user is not satisfied with the exciting moving holograms, he can require the system to scan and generate a new one.  -->
+
+> Scenario 1: User enters the recording area and touches the record button on the display. Three cameras will then start recording the user's movements. The Point Cloud Mesh System transfers the movements to the 3D hologram recording. After recording and transfer are finished, the user reviews the 3D hologram recording and in the meantime, the developer will review the recording quality. If the recording quality is qualified, the user will leave the recording area and enter the review area. In the review area, users input their Demographic Info into the display, and receive a 3D hologram recording from the system.    
+
+> Scenario 2: User enters the Recording area and touches the record button on the display. Three cameras will then start recording the user's movements. The Point Cloud Mesh System transfers the movements to a 3D hologram for recording. After recording is finished, the user reviews the 3D hologram recording, and in the meantime, the developer will review the recording quality. If the quality of a recording is **NOT qualified**, the developer will ask the user to record again until the quality is qualified. Then user leaves the recording area and enters the review area. In the review area, user inputs his Demographic Info into the display, and receive a 3D hologram recording from the system. 
+
+> Scenario 3: User enters the Recording area, and touches the Start Recording button on the user-interaction display. Three cameras will then start recording the user's movements. The Point Cloud Mesh transfers the movements to the 3D hologram recording. After recording is finished, the user reviews the 3D hologram recording, and the developer then reviews the recording quality. However, the user is **not satisfied** with the quality of the recording, so he asks for another recording. The system will then delete the old recording and record a new recording. When the quality of recording is satisfied to both user and developer, user can leave the recording area and enter the review area. In the review area, user inputs his Demographic Info into the display, and receives a 3D hologram recording from the system.
+
 
 
 
