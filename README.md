@@ -75,9 +75,18 @@ In order to complete the tasks of the project, we need several different capabil
 
 # Project Plan (Wenkang)
 
-The Child of Now is an ambitious project that has not been seen to specific data. The approximate timeline is as follows. In 2018, the concept and design of the project were presented and corresponding feasibility, development and risk assessment were implemented as well. In 2019, we had the specific project plan and the main task was the application and website development. Besides, we refined the project and communication strategy to improve the performance. Currently, we need to focus on the data gathering and processing and evaluate the results. Moreover, the 3D models will be established and shown in the situation. In 2021, the live event and digital iterative design and development are the purpose of the project. At the end of 2021, we plan to finish the project and make live global streaming to the public.
+According to the requirements and the project timeline, our group establishes the following schedule for the semester to complete the expected tasks and assignments after the discussion.
 
-
+Week | Content
+---- | -----
+Week 5 | Sprint 1: Build the necessary development environments, such as unity, google drive, GitHub and so on. Obtain and analyse the data given by the leader. Besides, we need to learn basic skills of the software used in the project. 
+Week 6 | Sprint 1: Create and implement the user enters studio and user captured with the performs actions.
+Week 7 | Sprint 1: Establish the triangulation algorithms from point cloud to mesh in different methods and then select the best one based on their performance and result and apply it in the project.
+Week 8 | Sprint 1: use unity to build the 3D model from FBX, which is a complex but adaptable file format for 3D animation with good performance. Finish the sprint one.
+Week 9 | Sprint 2: Analyse the users’ requirements and design a powerful and complete user interface to help users interact and communicate with the system smoothly.
+Week 10 | Sprint 2: From the view of users and developers respectively, implement the watches recording and reviews quality and leaves corresponding recording area and saves recording.
+Week 11 | Sprint 2: For users we need to perform the input and for developers we need to receive and process the output.
+Week 12 | Sprint 2: Finish the user interface and connect to the system. Complete the sprint two.
 
 
 
