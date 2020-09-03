@@ -58,20 +58,6 @@ In this project, the target of team 20 is to convert the collected data into ima
 > Scenario 3: User enters the Recording area, and touches the Start Recording button on the user-interaction display. Three cameras will then start recording the user's movements. The Point Cloud Mesh transfers the movements to the 3D hologram recording. After recording is finished, the user reviews the 3D hologram recording, and the developer then reviews the recording quality. However, the user is **not satisfied** with the quality of the recording, so he asks for another recording. The system will then delete the old recording and record a new recording. When the quality of recording is satisfied to both user and developer, user can leave the recording area and enter the review area. In the review area, user inputs his Demographic Info into the display, and receives a 3D hologram recording from the system.
 
 
-```mermaid
-graph TB
-  subgraph "User Interaction"
-  SubGraph1Flow(Recording)
-  SubGraph1Flow -- User --> InteractionNode1[Watches Recording]
-  SubGraph1Flow -- Developer --> InteractionNode2[Reviews Quality]
-  InteractionNode1 -- Leaves Recording Area --> InteractionNode3[Review Area]
-  InteractionNode2 -- Saves Recording --> InteractionNode3[Review Area]
-  InteractionNode3 -- User Performs --> InteractionNode4[Input]
-  InteractionNode3 -- User Receives --> InteractionNode5[Output]
-  InteractionNode4 -- into Display --> InteractionNode6[Demographic Info]
-  InteractionNode5 -- from Display --> InteractionNode7[Recording]
-end
-```
 
 
 
@@ -91,16 +77,6 @@ In order to complete the tasks of the project, we need several different capabil
 
 The Child of Now is an ambitious project that has not been seen to specific data. The approximate timeline is as follows. In 2018, the concept and design of the project were presented and corresponding feasibility, development and risk assessment were implemented as well. In 2019, we had the specific project plan and the main task was the application and website development. Besides, we refined the project and communication strategy to improve the performance. Currently, we need to focus on the data gathering and processing and evaluate the results. Moreover, the 3D models will be established and shown in the situation. In 2021, the live event and digital iterative design and development are the purpose of the project. At the end of 2021, we plan to finish the project and make live global streaming to the public.
 
-
-```mermaid
-graph TB
-subgraph "Data Flow"
-  Node1[<<User Enters Studio>>] -- Performs Actions --> Node2[User Captured]
-  Node2 -- Kinect Data from Capture --> Node3[Point Cloud to Mesh]
-  Node3 -- Triangulation Algorithm Output --> Node4[OBJ/FBX]
-  Node4 -- Unity-XR --> Node5[Child-of-Now]
-end
-```
 
 
 
