@@ -65,6 +65,87 @@ In this project, the target of team 20 is to convert the collected data into ima
 
 # Requirements (Zheng Tang)
 
+## User Capture Interaction
+
+### Functional Requirements:
+
+## Recording Sessions
+* Recording can be started and stopped by technician on tablet or workstation
+* Recording can be started and stopped by user pressing button
+* Recording can run for a set time.
+* A ‘3, 2, 1’ countdown sound plays once button pressed.
+* A sound indicates when recording begins and end.
+* Sounds can play during the recording that contain instructions for the user or music.
+* Video or image can be displayed on the user screen while the recording plays.
+### Session Scripts: Instruction and Prompt Management
+1.	A recording session is made up of many recordings (Takes) of a user performing in response to instructions and prompts
+2.	An instruction is specific verbal or pictoral advice that asks the user to perform a specific thing e.g. 'Please say your name' [in text or spoken or both], 'Please stand on one leg', 'Please leave the recording area' etc.
+3.	A prompt is a less specific request to the user that can be verbal, pictoral or sound e.g. 'Look out over the city', 'Tell me what you will be doing in 2030', 'Show me your happy face', 'Dance like the person on screen' etc.
+4.	A session script is the order of the instructions and prompts in a session
+#### The technician can:
+*	create and order new or existing instructions and prompts before a recording session
+*	reorder and add existing instructions and prompts during a session
+*	save lists of prompts and instructions called 'Session Scripts'
+A 'Take' is a recording of the user performing an instruction or prompt. [Take is a term taken from film making]
+#### The user or technician can:
+*	request to 'retake' the instruction or prompt [request another Take of the same action]
+Session Scripts are saved with the recording session
+Each Take is saved with reference to the prompt and/or instruction as metadata so that we know what take relates to what prompt
+[option] Prompts and instructions can be rated out of 5 by the technician and the user
+### Advanced Performance Feedback:
+*	The system can detect when the user has performed a pose or action and stop the recording and give feedback to the user.
+*	The user can detect when the user has NOT performed an action or pose, and asks the user to do another try [requests a retake]. E.g. user has eyes closed, user not in capture volume, user does not perform ‘T’ shape etc.
+### Demographic information
+#### The user and technician can:
+*	add demographic information about the user at any point of the recording and reviewing process
+*	all demographic data is connected to every take by that user
+*	data includes: date of birth, time of birth (if known), name, nationality, place of birth, date of recording
+*	data includes: relationship to any other user e.g. familial, friendship, partner
+Further fields must be easily addable by the technician if required - more requirements capture needed here.
+## Reviewing Sessions
+After a recording session, the technician and user can review the takes. Each take can be reviewed individually. A whole session can be replayed in order.
+Technician can:
+*	quickly see if every prompt or instruction in a session has a take [are there any gaps]
+*	quickly see if any prompt or instruction has more than one take [so they know they have to select the best one]
+*	select the best take for an individual instruction or prompt
+*	delete or move takes from a recording session
+*	add a take from another recording session
+*	save the recording session in the library
+Sequences
+#### The technician and user can:
+*	change the order of takes from a session to make a new sequence
+*	save the new sequence
+*	add metadata to a take or sequence
+*	view sessions, takes and sequences on screen and in VR
+## Library
+The library contains all takes and sequences from all recording sessions.
+#### The technician and user can:
+*	retrieve a previous recording session, sequence or take
+*	search for all takes of a prompt or instruction from all recording sessions
+*	search for takes based on demographic information e.g. all people standing on one leg born in October 1999
+*	make and save a new sequence from the search results e.g. make a new sequence from all takes of people standing on one leg
+*	view library entries on screen and in VR, including new sequences
+*	export takes, sessions and sequences
+### Non-functional requirements:
+1.	The user interface should be beauty and easy to use.
+2.	The  user interface should have enough instruction for users and technician to operate.
+3.	Privacy and Security : the software should keep the users info privately and the video may need to backup to avoid losing.
+4.	The user interface should  reaction fast
+
+## Point Cloud to Mesh
+### Functional Requirements:
+
+After recording session, the person and his animation in the video  should be transformed into 3D model for projecting.
+1. The videos coming from three cameras should produce one point cloud of the user
+2. The point cloud should be transformed to mesh in the format of obj/fbx
+3. The mesh should be transformed to 3D model for projecting.
+
+### Non-functional requirements:
+
+1. The  algorithm  should working as fast as possible to reduce the response  time.
+2. The transformation should reduce cost as much as possible, because it may use their software.
+3. This transformation is involved with many parts and it need to be incorporated as a whole.
+4.the algorithm and his files should coordinated with the user interface. 
 
 
 # Project Prototypes (Wenkang)
@@ -91,9 +172,22 @@ Week 12 | Sprint 2: Finish the user interface and connect to the system. Complet
 
 
 # Goal Models (Zheng Tang)
+## User Capture interface
+The capture interface will be developed in Android platform by Android Studio.
 
+1. Recording Sessions: 
+Recording should be started and stopped by the application. This part can be implemented by use Android module to control the depth cameras。
+2. Reviewing Sessions:
+After a recording session, the technician and user can review the takes. Each take can be reviewed individually. A whole session can be replayed in order. This part can be implemented by use Android module.
+3. Library: 
+The library contains all takes and sequences from all recording sessions. This  part may use database like “mysql” or “sqlserver” to save data.
+## Point Cloud to Mesh
+The person and his animation in the video  should be transformed into 3D model for projecting.
 
-
+1. Data Capture: use depth camera
+2. Integrate the three point clouds to one : Kinect. 
+3. Transform the point cloud to mesh: use different way tries to find the best one(python, meshlab software and so on)
+4。 transform the mesh to 3D model: Use Unity
 
 
 
