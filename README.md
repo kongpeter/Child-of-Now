@@ -193,6 +193,11 @@ The person and his animation in the video  should be transformed into 3D model f
 
 # Development Environment (Martin)
 
+## Android Studio & Database
+In the phase 2, we will mainly focus on designing user interface. The user interface will be delopyed on android. Thus, `Android Studio` will be the main development tool. Furthermore, `Database` will be used to connect with user-interface and back-end.
+
+
+
 ## Kinect
 
 The Kinect can transfers the users' movements data to Point Cloud. The users' movement data is captured by three cameras, before generate the fina 3D hologram recording, we need use Kinect to transfer RGB images to point cloud.
