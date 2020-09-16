@@ -57,9 +57,16 @@ In this project, the target of team 20 is to convert the collected data into ima
 
 > Scenario 3: User enters the Recording area, and touches the Start Recording button on the user-interaction display. Three cameras will then start recording the user's movements. The Point Cloud Mesh transfers the movements to the 3D hologram recording. After recording is finished, the user reviews the 3D hologram recording, and the developer then reviews the recording quality. However, the user is **not satisfied** with the quality of the recording, so he asks for another recording. The system will then delete the old recording and record a new recording. When the quality of recording is satisfied to both user and developer, user can leave the recording area and enter the review area. In the review area, user inputs his Demographic Info into the display, and receives a 3D hologram recording from the system.
 
+The use cases can also be shown in table:
 
-
-
+| Use Cases | Description |
+|-|-|
+| SuD | The point cloud to mesh system |
+| Actor | Victorians(Users), Cameras, user-interation display, developers |
+| Basic Path | 1. User enters the recording area and touches the record button on the display.  <br>2. Three cameras will then start recording the user's movements. The Point Cloud Mesh System transfers the movements to the 3D hologram recording. <br>3. After recording and transfer are finished, the user reviews the 3D hologram recording and in the meantime, the developer will review the recording quality. <br>4. If the recording quality is qualified, the user will leave the recording area and enter the review area. <br>5. In the review area, users input their Demographic Info into the display, and receive a 3D hologram recording from the system. |
+| Alternative Path 1 | At step 4 of basic path, the quality of recording is **NOT qualified**, the developer will ask the user to record again until the quality is qualified. |
+| Alternative Path 2 | At step 3 of basic path, the user is not satisfied with recording quality, so he asks for record another time until he satisfied with it. |
+                                                                                                                                                                                                                                                                                                                                                                                            
 
 
 
