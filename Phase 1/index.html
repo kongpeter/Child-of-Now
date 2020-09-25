@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoped CSS Variables and JS</title>
+</head>
+
+
+<canvas></canvas>
+<script src="https://threejsfundamentals.org/threejs/resources/threejs/r94/three.min.js"></script>
+<script src="https://threejsfundamentals.org/threejs/resources/threejs/r94/js/controls/OrbitControls.js"></script>
+
+
+
+<style>
+    body {
+  margin: 0;
+}
+canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+}
+</style>
+
+<script>
+'use strict';
+
+/* global THREE */
+
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.crossOrigin = "anonymous";
+    img.onload = (e) => { resolve(img); };
+    img.onerror = reject;
+    img.src = url;
+  });
+}
+
+function getImageData(img) {  
+  const ctx = document.createElement("canvas").getContext("2d");
+  ctx.canvas.width = img.width;
+  ctx.canvas.height = img.height;
+  ctx.drawImage(img, 0, 0);
+  return ctx.getImageData(0, 0, ctx.canvas.width, ctx.canvas.height);
+}
+
+// return the pixel at UV coordinates (0 to 1) in 0 to 1 values
+function getPixel(imageData, u, v) {
+  const x = u * (imageData.width  - 1) | 0;
+  const y = v * (imageData.height - 1) | 0;
+  if (x < 0 || x >= imageData.width || y < 0 || y >= imageData.height) {
+    return [0, 0, 0, 0];
+  } else {
+    const offset = (y * imageData.width + x) * 4;
+    return Array.from(imageData.data.slice(offset, offset + 4)).map(v => v / 255);
+  }
+}
+
+async function main() {
+  const images = await Promise.all([
+    loadImage("https://i.imgur.com/lQKZIhL.png"),  // RGB
+    loadImage("https://i.imgur.com/s5dDsHI.png"),  // Depth
+  ]);
+  const data = images.map(getImageData);
+  
+  const canvas = document.querySelector('canvas');
+  const renderer = new THREE.WebGLRenderer({canvas: canvas});
+
+  const fov = 75;
+  const aspect = 2;  // the canvas default
+  const near = 1;
+  const far = 4000;
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.z = 2000;
+
+  const controls = new THREE.OrbitControls(camera, canvas);
+  controls.target.set(0, 0, 0);
+  controls.update();
+
+  const scene = new THREE.Scene();
+
+  const rgbData = data[0];
+  const depthData = data[1];
+  
+  const skip = 20;
+  const across = Math.ceil(rgbData.width / skip);
+  const down = Math.ceil(rgbData.height / skip);
+  
+  const positions = [];
+  const colors = [];
+  const color = new THREE.Color();
+  const spread = 1000;
+  const depthSpread = 1000;
+  const imageAspect = rgbData.width / rgbData.height;
+  
+  for (let y = 0; y < down; ++y) {
+    const v = y / (down - 1);
+    for (let x = 0; x < across; ++x) {
+      const u = x / (across - 1);
+      const rgb = getPixel(rgbData, u, v);
+      const depth = 1 - getPixel(depthData, u, v)[0];
+      
+      positions.push( 
+         (u *  2 - 1) * spread * imageAspect, 
+         (v * -2 + 1) * spread, 
+         depth * depthSpread,
+      );
+      colors.push( ...rgb.slice(0,3) );
+    }
+  }
+  
+  const geometry = new THREE.BufferGeometry();
+  geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( positions, 3 ) );
+  geometry.addAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
+  geometry.computeBoundingSphere();
+  const material = new THREE.PointsMaterial( { size: 15, vertexColors: THREE.VertexColors } );
+	const points = new THREE.Points( geometry, material );
+  scene.add( points );
+
+  function resizeRendererToDisplaySize(renderer) {
+    const canvas = renderer.domElement;
+    const width = canvas.clientWidth;
+    const height = canvas.clientHeight;
+    const needResize = canvas.width !== width || canvas.height !== height;
+    if (needResize) {
+      renderer.setSize(width, height, false);
+    }
+    return needResize;
+  }
+
+  function render(time) {
+    time *= 0.001;
+
+    if (resizeRendererToDisplaySize(renderer)) {
+      const canvas = renderer.domElement;
+      camera.aspect = canvas.clientWidth / canvas.clientHeight;
+      camera.updateProjectionMatrix();
+    }
+
+    renderer.render(scene, camera);
+
+    requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
+}
+
+main();
+</script>
+
+
+</html>

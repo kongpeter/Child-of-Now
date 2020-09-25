@@ -21,3 +21,4 @@ The `Stereo Camera Calibrato`r app produces an object containing the stereo came
 - Rectify stereo images using the `rectifyStereoImages` function.
 - Reconstruct the 3-D scene using the `reconstructScene` function.
 - Compute 3-D locations corresponding to matching pairs of image points using the `triangulate` function.
+
