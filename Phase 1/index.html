@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Scoped CSS Variables and JS</title>
+  <title>Generate Point Cloud from Images</title>
 </head>
 
 
@@ -11,14 +11,24 @@
 <script src="https://threejsfundamentals.org/threejs/resources/threejs/r94/js/controls/OrbitControls.js"></script>
 
 
+<label for="fname">RGB Image:</label>
+<input type="text" id="rgb" name="fname"><br><br>
+<label for="lname">Depth Image:</label>
+<input type="text" id="depth" name="lname"><br><br>
+
+  
+
+
+
+<button onclick="main()">Generate</button>
 
 <style>
-    body {
+  body {
   margin: 0;
 }
 canvas {
-  width: 100vw;
-  height: 100vh;
+  width: 80vw;
+  height: 80vh;
   display: block;
 }
 </style>
@@ -60,15 +70,17 @@ function getPixel(imageData, u, v) {
 
 async function main() {
   const images = await Promise.all([
-    loadImage("https://i.imgur.com/lQKZIhL.png"),  // RGB
-    loadImage("https://i.imgur.com/s5dDsHI.png"),  // Depth
+    //loadImage("https://i.imgur.com/lQKZIhL.png"),  // RGB
+    loadImage(document.getElementById("rgb").value),
+    loadImage(document.getElementById("depth").value),
+    //loadImage("https://i.imgur.com/s5dDsHI.png"),  // Depth
   ]);
   const data = images.map(getImageData);
   
   const canvas = document.querySelector('canvas');
   const renderer = new THREE.WebGLRenderer({canvas: canvas});
 
-  const fov = 75;
+  const fov = 75; //Point size
   const aspect = 2;  // the canvas default
   const near = 1;
   const far = 4000;
@@ -84,7 +96,7 @@ async function main() {
   const rgbData = data[0];
   const depthData = data[1];
   
-  const skip = 20;
+  const skip = 10;  //Resolution of point cloud
   const across = Math.ceil(rgbData.width / skip);
   const down = Math.ceil(rgbData.height / skip);
   
@@ -147,7 +159,7 @@ async function main() {
   requestAnimationFrame(render);
 }
 
-main();
+//main();
 </script>
 
 </html>
