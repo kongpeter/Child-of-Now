@@ -22,3 +22,17 @@ The `Stereo Camera Calibrato`r app produces an object containing the stereo came
 - Reconstruct the 3-D scene using the `reconstructScene` function.
 - Compute 3-D locations corresponding to matching pairs of image points using the `triangulate` function.
 
+
+## Stereo Camera Calibration
+
+![stro](https://i.imgur.com/tXaPo8g.png)
+
+Follow this workflow to calibrate your stereo camera using the app:
+
+1. Prepare images, camera, and calibration pattern.
+2. Add image pairs.
+3. Calibrate the stereo camera.
+4. Evaluate calibration accuracy.
+5. Adjust parameters to improve accuracy (if necessary).
+6. Export the parameters object.
+
