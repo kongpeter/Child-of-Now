@@ -9,9 +9,9 @@ Last Updated Date: 06/09/2020
 
 # Introduction
 
-## Background (Ziyue)
+## Background
 
-Focusing on the question "What will the life of a child born now look like?", the "Children Now" project will collectively imagine the 100-year lifetime of a child born in 2020, creating a rare and extraordinary moment in the life of the Victorian era. Participants and visitors will have the opportunity to consciously sympathize with the next generation, who will inherit our culture, customs, and impact on the environment.
+Focusing on the question "What will the life of a child born now look like?", the "Chiild of Now" project will collectively imagine the 100-year lifetime of a child born in 2020, creating a rare and extraordinary moment in the life of the Victorian era. Participants and visitors will have the opportunity to consciously sympathize with the next generation, who will inherit our culture, customs, and impact on the environment.
 
 The project is expected to take ten days in 2021 to show people the 100 years of a "person" in the form of a 144-meter tall augmented reality (AR) sculpture. In the project, we collected the personal portraits and voices of 14,400 participants from all walks of life.  fully represent the diversity of life in Victoria with different cultures, ages, languages, bodies, genders and voices. After sorting these portraits by the age of the participants, the giant will grow every minute for 10 days. When it grows from 1 to 100, the statue will continue to age by switching the face, body and voice of the contributor. People can see every moment of the life of the statue above Hammer Concert Hall through large screens and mobile phones, and can also watch screens throughout the city and around the world through real-time streaming.
 
@@ -19,7 +19,7 @@ For our team 20, our main task is divided into two parts: creating a mesh from P
 
 
 
-## Scope (Ziyue)
+## Scope
 ### In scope
 #### Target
 In this project, the target of team 20 is to convert the collected data into images and capture and output the portraits, and then design an interactive interface as much as possible to allow users to better enjoy the results of our project. 
@@ -46,7 +46,7 @@ In this project, the target of team 20 is to convert the collected data into ima
 2. Process audio files of participants.
 
 
-## Use Cases (Lingxuan)
+## Use Cases
 
 * **SuD**: The Point Cloud to Mesh system. 
 * **Actor**: 14,400 Victorians(Users), Cameras, user-interation display, developers. 
@@ -70,7 +70,7 @@ The use cases can also be shown in table:
 
 
 
-# Requirements (Zheng Tang)
+# Requirements
 
 ## User Capture Interaction
 
@@ -161,7 +161,7 @@ In order to complete the tasks of the project, we need several different capabil
 
 
 
-# Project Plan (Wenkang)
+# Project Plan
 
 According to the requirements and the project timeline, our group establishes the following schedule for the semester to complete the expected tasks and assignments after the discussion.
 
@@ -178,7 +178,7 @@ Week 12 | Sprint 2: Finish the user interface and connect to the system. Complet
 
 
 
-# Goal Models (Zheng Tang)
+# Goal Models
 ## User Capture interface
 The capture interface will be developed in Android platform by Android Studio.
 
@@ -198,7 +198,7 @@ The person and his animation in the video  should be transformed into 3D model f
 
 
 
-# Development Environment (Martin)
+# Development Environment
 
 ## Android Studio & Database
 In the phase 2, we will mainly focus on designing user interface. The user interface will be delopyed on android. Thus, `Android Studio` will be the main development tool. Furthermore, `Database` will be used to connect with user-interface and back-end.
